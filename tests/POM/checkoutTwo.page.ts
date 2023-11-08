@@ -8,5 +8,11 @@ export default class CheckoutTwoPage{
         this.page = page;
     }
 
+    buttonFinish = () => this.page.locator("#finish");
+
+    public async clickFinishButton(){
+
+        await this.buttonFinish().click();
+    }
 
 }
