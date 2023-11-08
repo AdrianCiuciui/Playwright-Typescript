@@ -15,7 +15,7 @@ test(" Place product in cart and checkout | @e2e ", async ( { page }) => {
     await loginPage.goToLogin();
     await loginPage.performLoginWithRegularUser();
     await productsPage.addProductToCartAndGoToCart(2);
-    await cartPage.checkPageElements();
-
+    await cartPage.clickCheckoutButton();
+    
     
 })

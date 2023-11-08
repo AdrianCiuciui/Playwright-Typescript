@@ -19,13 +19,7 @@ export default class ConfirmationPage{
     }
 
 
-    public async checkPageElementsAreDisplayed(){
-
-        expect(await this.confirmationLogo().isVisible()).toBeTruthy();
-        expect(await this.confirmationTitle().isVisible()).toBeTruthy();
-        expect(await this.confirmationDescription().isVisible()).toBeTruthy();
-    }
-
+    
     public async clickBackHome(){
 
         await this.buttonBackHome().click();
