@@ -18,9 +18,4 @@ export default class CheckoutOnePage {
         await this.inputLastName().fill(ln);
         await this.inputPostalCode().fill(zip);
     }
-
-    public async clickContinueButton() {
-        await this.buttonContinue().click();
-    }
-
 }

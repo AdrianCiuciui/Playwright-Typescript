@@ -17,13 +17,4 @@ export default class ConfirmationPage{
     public async goToConfirmation(){
         await this.page.goto("https://www.saucedemo.com/checkout-complete.html");
     }
-
-
-    
-    public async clickBackHome(){
-
-        await this.buttonBackHome().click();
-    }
-
-
 }
