@@ -1,10 +1,10 @@
 import { expect, Page } from "@playwright/test";
 
-export default class CheckoutOnePage{
-    
+export default class CheckoutOnePage {
+
     page: Page;
 
-    constructor (page: Page){
+    constructor(page: Page) {
         this.page = page;
     }
 
@@ -13,15 +13,13 @@ export default class CheckoutOnePage{
     inputPostalCode = () => this.page.locator("#postal-code");
     buttonContinue = () => this.page.locator("#continue");
 
-    public async inputMandatoryValues(fn: string, ln: string, zip: string){
-
+    public async inputMandatoryValues(fn: string, ln: string, zip: string) {
         await this.inputFirstName().fill(fn);
         await this.inputLastName().fill(ln);
         await this.inputPostalCode().fill(zip);
     }
 
-    public async clickContinueButton(){
-
+    public async clickContinueButton() {
         await this.buttonContinue().click();
     }
 
