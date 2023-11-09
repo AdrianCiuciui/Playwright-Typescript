@@ -20,8 +20,17 @@ export default class ProductsPage {
 
     public async addProductToCartAndGoToCart(index: number) {
         await this.addToCartNth().nth(index).click();
+    }
+
+    public async clickGoToCart() {
         await this.buttonCart().click();
     }
+
+    public async checkNumberOfProductsNotInTheCart(productsNotInCart: number) {
+        const occurrences: number = await this.addToCartNth().count();
+        await expect(occurrences).toBe(productsNotInCart);
+    }
+
 
     public async clickOnProductImage(index: number) {
         await this.buttonProductNth().nth(index).click();
