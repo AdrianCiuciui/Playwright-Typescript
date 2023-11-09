@@ -1,5 +1,4 @@
 import { test, expect } from "../../fixtures/basePage";
-import ProductPage from "../../pom/product.page";
 
 test(" Place product in cart and checkout | @e2e ", async (
     {cartPage, checkoutOnePage, checkoutTwoPage, confirmationPage, loginPage, productsPage }) => {
