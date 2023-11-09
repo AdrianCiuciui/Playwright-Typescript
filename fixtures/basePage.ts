@@ -34,7 +34,7 @@ export const test = base.extend<{
     loginPage: async ({ page }, use) => {
         await use(new LoginPage(page));
     },
-    productPage: async ({ page}, use) => {
+    productPage: async ({ page }, use) => {
         await use(new ProductPage(page));
     },
     productsPage: async ({ page }, use) => {
