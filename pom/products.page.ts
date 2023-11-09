@@ -17,8 +17,13 @@ export default class ProductsPage {
     }
 
     public async addProductToCartAndGoToCart(index: number) {
-
         await this.addToCartNth().nth(index).click();
         await this.buttonCart().click();
     }
+
+    public async checkNumberOfProductsNotInTheCart(productsNotInCart : number) {
+        var occurrences : number = await this.addToCartNth().count();
+        expect (occurrences).toBe(productsNotInCart);
+    }
+
 }

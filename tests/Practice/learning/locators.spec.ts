@@ -14,13 +14,11 @@ test("New GetBy Methods", async( {page} ) => {
     await selectors.setTestIdAttribute("data-reactid");
     await page.getByTestId(".0.0.1").fill("Hello dear world");
     await page.getByPlaceholder("What needs to be done?").press("Enter");
-
-
 });
 
 
 
-test.only("New GetBy Methods, but with Google", async( {page} ) => {
+test("New GetBy Methods, but with Google", async( {page} ) => {
 
     await page.goto("https://www.google.com");
     await page.getByText("Accept").last().click();
