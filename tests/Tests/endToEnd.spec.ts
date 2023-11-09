@@ -7,11 +7,11 @@ test(" Place product in cart and checkout | @e2e ", async (
     await loginPage.goToLogin();
     await loginPage.performLoginWithRegularUser();
     await productsPage.checkNumberOfProductsNotInTheCart(6);
-    await productsPage.addProductToCartAndGoToCart(4);
+    await productsPage.addToCartNth().nth(4).click();
     await productsPage.checkNumberOfProductsNotInTheCart(5);
-    await productsPage.addProductToCartAndGoToCart(0);
+    await productsPage.addToCartNth().nth(0).click();
     await productsPage.checkNumberOfProductsNotInTheCart(4);
-    await productsPage.clickGoToCart();
+    await productsPage.buttonCart().click();
     await cartPage.buttonCheckout().click();
     await checkoutOnePage.inputMandatoryValues("First", "Last", "123123");
     await checkoutOnePage.buttonContinue().click();
@@ -26,7 +26,7 @@ test(" Place product in cart from product page | @e2e ", async (
 
     await loginPage.goToLogin();
     await loginPage.performLoginWithRegularUser();
-    await productsPage.clickOnProductImage(1);
+    await productsPage.buttonProductNth().nth(1).click();
     await productPage.buttonaddToCart().click();
     await productPage.buttonBackToProducts().click();
 

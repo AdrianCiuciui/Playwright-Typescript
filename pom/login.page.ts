@@ -18,7 +18,6 @@ export default class LoginPage{
     }
 
     public async performLoginWithRegularUser(){
-
         await this.inputLogin().fill("standard_user");
         await this.inputPassword().fill("secret_sauce");
         await this.buttonLogin().click();

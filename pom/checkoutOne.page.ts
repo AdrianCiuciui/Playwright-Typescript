@@ -18,4 +18,5 @@ export default class CheckoutOnePage {
         await this.inputLastName().fill(lastName);
         await this.inputPostalCode().fill(zipCode);
     }
+    
 }
