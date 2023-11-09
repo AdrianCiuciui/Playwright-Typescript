@@ -8,8 +8,8 @@ test(" Place product in cart and checkout | @e2e ", async (
     await loginPage.performLoginWithRegularUser();
 
     await productsPage.checkNumberOfProductsNotInTheCart(6);
-    await productsPage.clickAddToCartAndCheckNumberOfProducts(4, 5);
-    await productsPage.clickAddToCartAndCheckNumberOfProducts(0, 4);
+    await productsPage.checkNumberOfProductsAfterAddingProductToCart(4, 5);
+    await productsPage.checkNumberOfProductsAfterAddingProductToCart(0, 4);
 
     await performCheckoutAndValidateNumberOfProducts({ cartPage, checkoutOnePage, checkoutTwoPage, confirmationPage, productsPage });
 })

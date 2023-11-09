@@ -18,7 +18,7 @@ export default class ProductsPage {
         await expect(occurrences).toBe(productsNotInCart);
     }
 
-    public async clickAddToCartAndCheckNumberOfProducts(productIndex: number, productsLeft: number) {
+    public async checkNumberOfProductsAfterAddingProductToCart(productIndex: number, productsLeft: number) {
         await this.addToCartNth().nth(productIndex).click();
         await this.checkNumberOfProductsNotInTheCart(productsLeft);
     }
