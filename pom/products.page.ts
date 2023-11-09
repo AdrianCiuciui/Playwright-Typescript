@@ -16,9 +16,17 @@ export default class ProductsPage {
         await this.page.goto("https://www.saucedemo.com/inventory.html");
     }
 
-    public async addProductToCartAndGoToCart(index: number) {
-
+    public async addProductToCartForIndexValue(index: number) {
         await this.addToCartNth().nth(index).click();
+    }
+
+    public async clickGoToCart() {
         await this.buttonCart().click();
     }
+
+    public async checkNumberOfProductsNotInTheCart(productsNotInCart: number) {
+        const occurrences: number = await this.addToCartNth().count();
+        await expect(occurrences).toBe(productsNotInCart);
+    }
+
 }
