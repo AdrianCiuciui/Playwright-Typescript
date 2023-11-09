@@ -10,8 +10,4 @@ export default class CheckoutTwoPage {
 
     buttonFinish = () => this.page.locator("#finish");
 
-    public async clickFinishButton() {
-        await this.buttonFinish().click();
-    }
-
 }

@@ -5,6 +5,7 @@ import {
     CheckoutTwoPage,
     ConfirmationPage,
     LoginPage,
+    ProductPage,
     ProductsPage
 }
     from '../pom';
@@ -15,6 +16,7 @@ export const test = base.extend<{
     checkoutTwoPage: CheckoutTwoPage,
     confirmationPage: ConfirmationPage,
     loginPage: LoginPage,
+    productPage: ProductPage,
     productsPage: ProductsPage
 }>({
     cartPage: async ({ page }, use) => {
@@ -31,6 +33,9 @@ export const test = base.extend<{
     },
     loginPage: async ({ page }, use) => {
         await use(new LoginPage(page));
+    },
+    productPage: async ({ page }, use) => {
+        await use(new ProductPage(page));
     },
     productsPage: async ({ page }, use) => {
         await use(new ProductsPage(page));

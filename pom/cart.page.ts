@@ -10,10 +10,4 @@ export default class CartPage {
 
     buttonCheckout = () => this.page.locator("#checkout");
 
-
-    public async clickCheckoutButton() {
-        await this.buttonCheckout().click();
-    }
-
-
 }
