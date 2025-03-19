@@ -16,11 +16,7 @@ jobs:
       - name: Clear Runner Cache
         run: rm -rf /home/runner/work/_actions
 
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          repository: ${{ github.repository }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
