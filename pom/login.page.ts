@@ -24,7 +24,7 @@ export default class LoginPage{
         await this.inputLogin.fill(username);
         await this.inputThePassword();
         await this.buttonLogin.click();
-        await expect(this.page).toHaveURL('${LoginPage.BASE_URL}/inventory.html');
+        await expect(this.page).toHaveURL(`${LoginPage.BASE_URL}/inventory.html`);
     }
 
     public async performLoginWithRegularUser(){
