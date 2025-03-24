@@ -2,7 +2,7 @@ import { expect, Page } from "@playwright/test";
 
 export default class LoginPage{
     
-    private static readonly URL = "https://www.saucedemo.com";
+    private static readonly BASE_URL = "https://www.saucedemo.com";
     private static readonly PASSWORD = "secret_sauce";
 
     constructor (private page: Page){}
@@ -13,7 +13,7 @@ export default class LoginPage{
 
 
     public async goToLogin(){
-        await this.page.goto(LoginPage.URL);
+        await this.page.goto(LoginPage.BASE_URL);
     }
 
     private async inputThePassword(){
@@ -24,7 +24,7 @@ export default class LoginPage{
         await this.inputLogin.fill(username);
         await this.inputThePassword();
         await this.buttonLogin.click();
-        await expect(this.page).toHaveURL("https://www.saucedemo.com/inventory.html");
+        await expect(this.page).toHaveURL('${LoginPage.BASE_URL}/inventory.html');
     }
 
     public async performLoginWithRegularUser(){
