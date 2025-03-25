@@ -27,7 +27,7 @@ export default class LoginPage{
         await expect(this.page).toHaveURL(`${LoginPage.BASE_URL}/inventory.html`);
     }
 
-    public async performLoginWithRegularUser(){
+    public async performLoginWithStandardUser(){
         await this.performLogin("standard_user");
     }
 
