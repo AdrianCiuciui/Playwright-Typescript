@@ -5,7 +5,7 @@ test(" Place product in cart and checkout | @e2e ", async (
     { cartPage, checkoutOnePage, checkoutTwoPage, confirmationPage, loginPage, productsPage }) => {
 
     await loginPage.goToLogin();
-    await loginPage.performLoginWithRegularUser();
+    await loginPage.performLoginWithStandardUser();
 
     await productsPage.checkNumberOfProductsNotInTheCart(6);
     await productsPage.checkNumberOfProductsAfterAddingProductToCart(4, 5);
@@ -18,7 +18,7 @@ test(" Place product in cart from product page | @e2e ", async (
     { cartPage, checkoutOnePage, checkoutTwoPage, confirmationPage, loginPage, productPage, productsPage }) => {
 
     await loginPage.goToLogin();
-    await loginPage.performLoginWithRegularUser();
+    await loginPage.performLoginWithStandardUser();
 
     await productsPage.checkNumberOfProductsNotInTheCart(6);
     await addProductFromDetailsPageAndReturnToProductsPage({ productPage, productsPage }, 1, 5);

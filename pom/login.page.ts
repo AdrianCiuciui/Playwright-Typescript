@@ -2,24 +2,52 @@ import { expect, Page } from "@playwright/test";
 
 export default class LoginPage{
     
-    page: Page;
+    private static readonly BASE_URL = "https://www.saucedemo.com";
+    private static readonly PASSWORD = "secret_sauce";
 
-    constructor (page: Page){
-        this.page = page;
-    }
+    constructor (private page: Page){}
 
-    inputLogin = () => this.page.locator('[data-test="username"]');;
-    inputPassword = () => this.page.locator("#password");
-    buttonLogin = () => this.page.locator("#login-button");
+    get inputLogin() {return this.page.locator('[data-test="username"]')};
+    get inputPassword() {return this.page.locator('#password')};
+    get buttonLogin() {return this.page.locator("#login-button")};
 
 
     public async goToLogin(){
-        await this.page.goto("https://www.saucedemo.com");
+        await this.page.goto(LoginPage.BASE_URL);
     }
 
-    public async performLoginWithRegularUser(){
-        await this.inputLogin().fill("standard_user");
-        await this.inputPassword().fill("secret_sauce");
-        await this.buttonLogin().click();
+    private async inputThePassword(){
+        await this.inputPassword.fill(LoginPage.PASSWORD);
+    }
+
+    private async performLogin(username: string){
+        await this.inputLogin.fill(username);
+        await this.inputThePassword();
+        await this.buttonLogin.click();
+        await expect(this.page).toHaveURL(`${LoginPage.BASE_URL}/inventory.html`);
+    }
+
+    public async performLoginWithStandardUser(){
+        await this.performLogin("standard_user");
+    }
+
+    public async performLoginWithLockedOutUser(){
+        await this.performLogin("locked_out_user");
+    }        
+
+    public async performLoginWithProblemUser(){
+        await this.performLogin("problem_user");
+    }
+
+    public async performLoginWithPerformanceGlitchUser(){
+        await this.performLogin("performance_glitch_user");
+    }
+
+    public async performLoginWithErrorUser(){
+        await this.performLogin("error_user");
+    }
+
+    public async performLoginWithVisualUser(){
+        await this.performLogin("visual_user");
     }
 }
