@@ -4,6 +4,6 @@ export default class CartPage {
 
     constructor(private page: Page) {}
 
-    buttonCheckout = () => this.page.locator("#checkout");
+    get buttonCheckout() {return this.page.locator("#checkout")};
 
 }

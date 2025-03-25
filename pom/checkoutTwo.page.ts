@@ -4,6 +4,6 @@ export default class CheckoutTwoPage {
 
     constructor(private page: Page) {}
 
-    buttonFinish = () => this.page.locator("#finish");
+    get buttonFinish() {return this.page.locator("#finish")};
 
 }
