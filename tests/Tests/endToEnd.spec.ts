@@ -29,19 +29,19 @@ test(" Place product in cart from product page | @e2e ", async (
 
 
 async function performCheckoutAndValidateNumberOfProducts({ cartPage, checkoutOnePage, checkoutTwoPage, confirmationPage, productsPage }) {
-    await productsPage.buttonCart().click();
-    await cartPage.buttonCheckout().click();
+    await productsPage.buttonCart.click();
+    await cartPage.buttonCheckout.click();
     await checkoutOnePage.inputMandatoryValues("First", "Last", "123123");
-    await checkoutOnePage.buttonContinue().click();
-    await checkoutTwoPage.buttonFinish().click();
-    await confirmationPage.buttonBackHome().click();
+    await checkoutOnePage.buttonContinue.click();
+    await checkoutTwoPage.buttonFinish.click();
+    await confirmationPage.buttonBackHome.click();
     await productsPage.checkNumberOfProductsNotInTheCart(6);
 }
 
 
 async function addProductFromDetailsPageAndReturnToProductsPage({ productPage, productsPage }, productToBeAddedIndex: number, productsLeft: number) {
-    await productsPage.buttonProductNth().nth(productToBeAddedIndex).click();
-    await productPage.buttonaddToCart().click();
-    await productPage.buttonBackToProducts().click();
+    await productsPage.buttonProductNth.nth(productToBeAddedIndex).click();
+    await productPage.buttonAddToCart.click();
+    await productPage.buttonBackToProducts.click();
     await productsPage.checkNumberOfProductsNotInTheCart(productsLeft);
 }
