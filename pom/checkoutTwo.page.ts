@@ -1,13 +1,12 @@
 import { expect, Page } from "@playwright/test";
+import BasePage from "./base.page";
 
-export default class CheckoutTwoPage {
-
-    page: Page;
+export default class CheckoutTwoPage extends BasePage{
 
     constructor(page: Page) {
-        this.page = page;
+        super(page);
     }
 
-    buttonFinish = () => this.page.locator("#finish");
+    get buttonFinish() {return this.page.locator("#finish")};
 
 }

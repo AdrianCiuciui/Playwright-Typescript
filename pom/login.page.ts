@@ -1,11 +1,14 @@
 import { expect, Page } from "@playwright/test";
+import BasePage from "./base.page";
 
-export default class LoginPage{
+export default class LoginPage extends BasePage {
     
     private static readonly BASE_URL = "https://www.saucedemo.com";
     private static readonly PASSWORD = "secret_sauce";
 
-    constructor (private page: Page){}
+    constructor (page: Page){
+        super(page);
+    }
 
     get inputLogin() {return this.page.locator('[data-test="username"]')};
     get inputPassword() {return this.page.locator('#password')};
