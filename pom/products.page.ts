@@ -1,8 +1,11 @@
 import { expect, Page } from "@playwright/test";
+import BasePage from "./base.page";
 
-export default class ProductsPage {
+export default class ProductsPage extends BasePage{
 
-    constructor(private page: Page) {}
+    constructor(page: Page) {
+        super(page);
+    }
 
     get buttonCart() {return this.page.locator(".shopping_cart_link")};
     get addToCartNth() {return this.page.getByText("Add to cart")};

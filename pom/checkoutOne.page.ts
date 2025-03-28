@@ -1,8 +1,11 @@
 import { expect, Page } from "@playwright/test";
+import BasePage from "./base.page";
 
-export default class CheckoutOnePage {
+export default class CheckoutOnePage extends BasePage{
 
-    constructor(private page: Page) {}
+    constructor(page: Page) {
+        super(page);
+    }
 
     get inputFirstName() {return this.page.locator("#first-name")};
     get inputLastName() {return this.page.locator("#last-name")};
