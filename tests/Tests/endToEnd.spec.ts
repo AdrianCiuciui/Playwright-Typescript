@@ -1,10 +1,10 @@
 import { test, expect } from "../../fixtures/basePage";
 
 
-test(" Place product in cart and checkout | @e2e ", async (
+test("Place product in cart and checkout | @e2e", async (
     { cartPage, checkoutOnePage, checkoutTwoPage, confirmationPage, loginPage, productsPage }) => {
 
-    await loginPage.goToLogin();
+    await loginPage.goToSauceDemoLoginPage();
     await loginPage.performLoginWithStandardUser();
 
     await productsPage.checkNumberOfProductsNotInTheCart(6);
@@ -14,10 +14,10 @@ test(" Place product in cart and checkout | @e2e ", async (
     await performCheckoutAndValidateNumberOfProducts({ cartPage, checkoutOnePage, checkoutTwoPage, confirmationPage, productsPage });
 })
 
-test(" Place product in cart from product page | @e2e ", async (
+test("Place product in cart from product page | @e2e", async (
     { cartPage, checkoutOnePage, checkoutTwoPage, confirmationPage, loginPage, productPage, productsPage }) => {
 
-    await loginPage.goToLogin();
+    await loginPage.goToSauceDemoLoginPage();
     await loginPage.performLoginWithStandardUser();
 
     await productsPage.checkNumberOfProductsNotInTheCart(6);
@@ -29,19 +29,19 @@ test(" Place product in cart from product page | @e2e ", async (
 
 
 async function performCheckoutAndValidateNumberOfProducts({ cartPage, checkoutOnePage, checkoutTwoPage, confirmationPage, productsPage }) {
-    await productsPage.buttonCart().click();
-    await cartPage.buttonCheckout().click();
+    await productsPage.buttonCart.click();
+    await cartPage.buttonCheckout.click();
     await checkoutOnePage.inputMandatoryValues("First", "Last", "123123");
-    await checkoutOnePage.buttonContinue().click();
-    await checkoutTwoPage.buttonFinish().click();
-    await confirmationPage.buttonBackHome().click();
+    await checkoutOnePage.buttonContinue.click();
+    await checkoutTwoPage.buttonFinish.click();
+    await confirmationPage.buttonBackHome.click();
     await productsPage.checkNumberOfProductsNotInTheCart(6);
 }
 
 
 async function addProductFromDetailsPageAndReturnToProductsPage({ productPage, productsPage }, productToBeAddedIndex: number, productsLeft: number) {
-    await productsPage.buttonProductNth().nth(productToBeAddedIndex).click();
-    await productPage.buttonaddToCart().click();
-    await productPage.buttonBackToProducts().click();
+    await productsPage.buttonProductNth.nth(productToBeAddedIndex).click();
+    await productPage.buttonAddToCart.click();
+    await productPage.buttonBackToProducts.click();
     await productsPage.checkNumberOfProductsNotInTheCart(productsLeft);
 }
