@@ -1,10 +1,10 @@
 import { test, expect } from "../../fixtures/basePage";
 
 
-test(" Place product in cart and checkout | @e2e ", async (
+test("Place product in cart and checkout | @e2e", async (
     { cartPage, checkoutOnePage, checkoutTwoPage, confirmationPage, loginPage, productsPage }) => {
 
-    await loginPage.goToLogin();
+    await loginPage.goToSauceDemoLoginPage();
     await loginPage.performLoginWithStandardUser();
 
     await productsPage.checkNumberOfProductsNotInTheCart(6);
@@ -14,10 +14,10 @@ test(" Place product in cart and checkout | @e2e ", async (
     await performCheckoutAndValidateNumberOfProducts({ cartPage, checkoutOnePage, checkoutTwoPage, confirmationPage, productsPage });
 })
 
-test(" Place product in cart from product page | @e2e ", async (
+test("Place product in cart from product page | @e2e", async (
     { cartPage, checkoutOnePage, checkoutTwoPage, confirmationPage, loginPage, productPage, productsPage }) => {
 
-    await loginPage.goToLogin();
+    await loginPage.goToSauceDemoLoginPage();
     await loginPage.performLoginWithStandardUser();
 
     await productsPage.checkNumberOfProductsNotInTheCart(6);
